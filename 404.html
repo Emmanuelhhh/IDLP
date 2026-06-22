@@ -1,0 +1,364 @@
+<!DOCTYPE html>
+<html lang="es" data-theme="light">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Página no encontrada — Instituto de la Plenitud" />
+  <meta name="robots" content="noindex, nofollow" />
+  <title>Página no encontrada · Instituto de la Plenitud</title>
+
+  <!-- ── Favicon ──────────────────────────────────────────── -->
+  <link rel="icon" type="image/svg+xml" href="assets/favicon.svg" />
+  <link rel="alternate icon" href="assets/favicon.png" />
+  <meta name="theme-color" content="#2B5FA8" />
+
+  <!-- Prevenir flash de tema incorrecto -->
+  <script>
+    (function() {
+      const saved = localStorage.getItem('ip-theme') || 'light';
+      document.documentElement.setAttribute('data-theme', saved);
+    })();
+  </script>
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet" />
+
+  <!-- Sistema de diseño compartido -->
+  <link rel="stylesheet" href="css/variables.css" />
+  <link rel="stylesheet" href="css/reset.css" />
+  <link rel="stylesheet" href="css/typography.css" />
+  <link rel="stylesheet" href="css/components.css" />
+
+  <!-- Estilos específicos de esta página -->
+  <style>
+    /* ── Layout principal ───────────────────────────────── */
+    body {
+      min-height: 100svh;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .error-page {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      padding: var(--s-16) var(--s-6) var(--s-12);
+      position: relative;
+      overflow: hidden;
+    }
+
+    /* ── Número 404 de fondo ────────────────────────────── */
+    .error-watermark {
+      font-family: var(--font-display);
+      font-size: clamp(9rem, 30vw, 20rem);
+      font-weight: 600;
+      line-height: 1;
+      background: linear-gradient(
+        135deg,
+        var(--accent)     0%,
+        var(--c-teal)    60%,
+        var(--c-violet) 100%
+      );
+      -webkit-background-clip: text;
+      background-clip: text;
+      -webkit-text-fill-color: transparent;
+      opacity: 0.07;
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      pointer-events: none;
+      user-select: none;
+      white-space: nowrap;
+      animation: watermark-drift 18s ease-in-out infinite alternate;
+    }
+
+    @keyframes watermark-drift {
+      from { transform: translate(-50%, -50%) scale(1);    }
+      to   { transform: translate(-50%, -51%) scale(1.03); }
+    }
+
+    /* ── Ícono ──────────────────────────────────────────── */
+    .error-icon {
+      width: 64px;
+      height: 64px;
+      border-radius: var(--r-xl);
+      background: color-mix(in srgb, var(--accent) 12%, transparent);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--accent);
+      margin-bottom: var(--s-6);
+      animation: icon-in var(--dur-slow) var(--ease-spring) both;
+    }
+    .error-icon svg {
+      width: 30px;
+      height: 30px;
+    }
+
+    /* ── Tag ────────────────────────────────────────────── */
+    .error-tag {
+      display: inline-block;
+      font-size: var(--sz-xs);
+      font-weight: var(--fw-semibold);
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--accent);
+      margin-bottom: var(--s-4);
+      animation: content-in var(--dur-slow) var(--ease-out) 80ms both;
+    }
+
+    /* ── Título ─────────────────────────────────────────── */
+    .error-title {
+      font-family: var(--font-display);
+      font-size: clamp(2rem, 5vw, 3.5rem);
+      font-weight: var(--fw-semibold);
+      line-height: 1.12;
+      color: var(--text-primary);
+      margin-bottom: var(--s-5);
+      animation: content-in var(--dur-slow) var(--ease-out) 140ms both;
+    }
+    .error-title em {
+      font-style: italic;
+      color: var(--accent);
+    }
+
+    /* ── Descripción ────────────────────────────────────── */
+    .error-desc {
+      max-width: 460px;
+      font-size: var(--sz-lg);
+      color: var(--text-secondary);
+      line-height: var(--lh-relaxed);
+      margin-bottom: var(--s-10);
+      animation: content-in var(--dur-slow) var(--ease-out) 200ms both;
+    }
+
+    /* ── Botones ────────────────────────────────────────── */
+    .error-actions {
+      display: flex;
+      gap: var(--s-3);
+      flex-wrap: wrap;
+      justify-content: center;
+      animation: content-in var(--dur-slow) var(--ease-out) 260ms both;
+    }
+
+    /* ── Separador decorativo ───────────────────────────── */
+    .error-divider {
+      display: flex;
+      align-items: center;
+      gap: var(--s-4);
+      margin-top: var(--s-12);
+      color: var(--text-muted);
+      font-size: var(--sz-sm);
+      animation: content-in var(--dur-slow) var(--ease-out) 340ms both;
+    }
+    .error-divider::before,
+    .error-divider::after {
+      content: '';
+      flex: 1;
+      width: 60px;
+      height: 1px;
+      background: var(--border-subtle);
+    }
+
+    /* ── Links de dimensiones sugeridas ─────────────────── */
+    .error-suggestions {
+      display: flex;
+      gap: var(--s-2);
+      flex-wrap: wrap;
+      justify-content: center;
+      margin-top: var(--s-4);
+      max-width: 520px;
+      animation: content-in var(--dur-slow) var(--ease-out) 380ms both;
+    }
+    .error-suggestion {
+      font-size: var(--sz-sm);
+      color: var(--text-muted);
+      padding: var(--s-1) var(--s-3);
+      border: 1px solid var(--border-subtle);
+      border-radius: var(--r-full);
+      transition: color var(--dur-base), border-color var(--dur-base), background var(--dur-base);
+    }
+    .error-suggestion:hover {
+      color: var(--accent);
+      border-color: var(--accent);
+      background: color-mix(in srgb, var(--accent) 6%, transparent);
+    }
+
+    /* ── Footer mínimo ──────────────────────────────────── */
+    .error-footer {
+      padding: var(--s-6) var(--s-6);
+      text-align: center;
+      font-size: var(--sz-sm);
+      color: var(--text-muted);
+      border-top: 1px solid var(--border-subtle);
+    }
+    .error-footer a {
+      color: var(--accent);
+      transition: opacity var(--dur-base);
+    }
+    .error-footer a:hover { opacity: 0.75; }
+
+    /* ── Animaciones de entrada ─────────────────────────── */
+    @keyframes icon-in {
+      from { opacity: 0; transform: scale(0.7) rotate(-10deg); }
+      to   { opacity: 1; transform: scale(1)   rotate(0deg);   }
+    }
+    @keyframes content-in {
+      from { opacity: 0; transform: translateY(16px); }
+      to   { opacity: 1; transform: translateY(0);    }
+    }
+
+    /* ── Reduced motion ─────────────────────────────────── */
+    @media (prefers-reduced-motion: reduce) {
+      .error-watermark,
+      .error-icon,
+      .error-tag,
+      .error-title,
+      .error-desc,
+      .error-actions,
+      .error-divider,
+      .error-suggestions { animation: none; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- ░░ NAVBAR ░░ -->
+  <nav class="navbar" id="navbar" aria-label="Navegación principal">
+    <div class="navbar__container">
+
+      <a href="/" class="navbar__logo" aria-label="Instituto de la Plenitud — Inicio">
+        <div class="navbar__logo-mark" aria-hidden="true">IP</div>
+        <span class="navbar__logo-text">Instituto de la Plenitud</span>
+      </a>
+
+      <div class="navbar__links" id="navLinks">
+        <a href="/#philosophy" class="navbar__link">Filosofía</a>
+        <a href="/#aspects"    class="navbar__link">Dimensiones</a>
+        <a href="/#discipline" class="navbar__link">Disciplina</a>
+        <a href="/#learning"   class="navbar__link">Aprendizaje</a>
+      </div>
+
+      <div class="navbar__actions">
+        <button class="theme-toggle" id="themeToggle" aria-label="Cambiar tema claro/oscuro">
+          <!-- Sol -->
+          <svg class="icon-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+            stroke-width="1.5" stroke-linecap="round" aria-hidden="true">
+            <circle cx="12" cy="12" r="4"/>
+            <path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M4.93 19.07l1.41-1.41M17.66 6.34l1.41-1.41"/>
+          </svg>
+          <!-- Luna -->
+          <svg class="icon-moon" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+            stroke-width="1.5" stroke-linecap="round" aria-hidden="true">
+            <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/>
+          </svg>
+        </button>
+
+        <button class="hamburger" id="hamburger" aria-label="Abrir menú" aria-expanded="false">
+          <span></span><span></span><span></span>
+        </button>
+      </div>
+
+    </div>
+  </nav>
+
+  <!-- ░░ SECCIÓN PRINCIPAL ░░ -->
+  <main class="error-page" id="main-content">
+
+    <!-- Número de fondo decorativo -->
+    <div class="error-watermark" aria-hidden="true">404</div>
+
+    <!-- Ícono de brújula: perderse como parte del camino -->
+    <div class="error-icon" aria-hidden="true">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor"
+        stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+        <circle cx="12" cy="12" r="10"/>
+        <polygon points="16.24 7.76 14.12 14.12 7.76 16.24 9.88 9.88 16.24 7.76"/>
+      </svg>
+    </div>
+
+    <span class="error-tag">Error 404</span>
+
+    <h1 class="error-title">
+      Esta página no existe.<br/>
+      <em>El camino sí.</em>
+    </h1>
+
+    <p class="error-desc">
+      Lo que buscas no está aquí. Quizás fue movida, o nunca estuvo.
+      El inicio siempre es un buen punto de partida para encontrar
+      lo que realmente importa.
+    </p>
+
+    <div class="error-actions">
+      <a href="/" class="btn btn--primary">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor"
+          stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+          width="16" height="16" aria-hidden="true" style="display:inline-block;vertical-align:-2px;margin-right:6px">
+          <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/>
+          <polyline points="9 22 9 12 15 12 15 22"/>
+        </svg>
+        Ir al inicio
+      </a>
+      <a href="/#aspects" class="btn btn--ghost">Ver las 14 dimensiones</a>
+    </div>
+
+    <!-- Dimensiones sugeridas -->
+    <div class="error-divider">
+      <span>O explora una dimensión</span>
+    </div>
+
+    <nav class="error-suggestions" aria-label="Dimensiones sugeridas">
+      <a href="/#aspects" class="error-suggestion">Salud Física</a>
+      <a href="/#aspects" class="error-suggestion">Propósito</a>
+      <a href="/#aspects" class="error-suggestion">Hábitos</a>
+      <a href="/#aspects" class="error-suggestion">Relaciones</a>
+      <a href="/#aspects" class="error-suggestion">Disciplina</a>
+      <a href="/#aspects" class="error-suggestion">Tiempo</a>
+    </nav>
+
+  </main>
+
+  <!-- ░░ FOOTER MÍNIMO ░░ -->
+  <footer class="error-footer">
+    <p>
+      &copy; 2026 <a href="/">Instituto de la Plenitud</a>.
+      Construyendo vidas más plenas, una dimensión a la vez.
+    </p>
+  </footer>
+
+  <!-- Solo theme.js: es el único script necesario en esta página -->
+  <script src="js/theme.js"></script>
+
+  <!-- Hamburger: cierra/abre el menú en móvil (lógica mínima inline) -->
+  <script>
+    (function () {
+      const btn   = document.getElementById('hamburger');
+      const links = document.getElementById('navLinks');
+      if (!btn || !links) return;
+
+      btn.addEventListener('click', () => {
+        const open = links.classList.toggle('open');
+        btn.setAttribute('aria-expanded', String(open));
+        btn.setAttribute('aria-label', open ? 'Cerrar menú' : 'Abrir menú');
+      });
+
+      // Cerrar al hacer click en un enlace
+      links.querySelectorAll('a').forEach((a) => {
+        a.addEventListener('click', () => {
+          links.classList.remove('open');
+          btn.setAttribute('aria-expanded', 'false');
+          btn.setAttribute('aria-label', 'Abrir menú');
+        });
+      });
+    })();
+  </script>
+
+</body>
+</html>

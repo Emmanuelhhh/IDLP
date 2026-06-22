@@ -1,0 +1,658 @@
+<!DOCTYPE html>
+<html lang="es" data-theme="light">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Instituto de la Plenitud — Construye una vida equilibrada, consciente y plena a través del desarrollo integral de todas las dimensiones humanas." />
+  <meta name="keywords" content="desarrollo personal, crecimiento integral, plenitud, equilibrio, disciplina, hábitos, propósito" />
+  <title>Instituto de la Plenitud</title>
+
+  <!-- ── Favicon ──────────────────────────────────────────── -->
+  <link rel="icon" type="image/svg+xml" href="assets/favicon.svg" />
+  <!-- Fallback PNG para navegadores que no soportan SVG favicon -->
+  <link rel="alternate icon" href="assets/favicon.png" />
+  <meta name="theme-color" content="#2B5FA8" />
+
+  <!-- ── Open Graph (Facebook, LinkedIn, WhatsApp…) ───────── -->
+  <meta property="og:type"        content="website" />
+  <meta property="og:title"       content="Instituto de la Plenitud" />
+  <meta property="og:description" content="La plenitud no depende solo del dinero o el éxito. Se construye desarrollando todas las dimensiones importantes de la vida de manera equilibrada." />
+  <meta property="og:image"       content="assets/og-preview.png" />
+  <meta property="og:image:width"  content="1200" />
+  <meta property="og:image:height" content="630" />
+  <meta property="og:url"         content="https://institutodelaplenitud.com" />
+  <meta property="og:locale"      content="es_ES" />
+  <meta property="og:site_name"   content="Instituto de la Plenitud" />
+
+  <!-- ── Twitter / X Card ────────────────────────────────── -->
+  <meta name="twitter:card"        content="summary_large_image" />
+  <meta name="twitter:title"       content="Instituto de la Plenitud" />
+  <meta name="twitter:description" content="Construye una vida equilibrada, consciente y plena. 14 dimensiones del desarrollo humano integral." />
+  <meta name="twitter:image"       content="assets/og-preview.png" />
+
+  <!-- ── Datos estructurados Schema.org ───────────────────── -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "EducationalOrganization",
+    "name": "Instituto de la Plenitud",
+    "description": "Organización dedicada al desarrollo humano integral a través del cultivo equilibrado de las 14 dimensiones de la vida.",
+    "url": "https://institutodelaplenitud.com",
+    "logo": "https://institutodelaplenitud.com/assets/favicon.svg",
+    "sameAs": []
+  }
+  </script>
+
+  <!-- Prevenir flash de tema incorrecto -->
+  <script>
+    (function() {
+      const saved = localStorage.getItem('ip-theme') || 'light';
+      document.documentElement.setAttribute('data-theme', saved);
+    })();
+  </script>
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet" />
+
+  <!-- Stylesheets — orden importa -->
+  <link rel="stylesheet" href="css/variables.css" />
+  <link rel="stylesheet" href="css/reset.css" />
+  <link rel="stylesheet" href="css/typography.css" />
+  <link rel="stylesheet" href="css/components.css" />
+  <link rel="stylesheet" href="css/layout.css" />
+  <link rel="stylesheet" href="css/animations.css" />
+</head>
+<body>
+
+  <!-- ░░ BARRA DE PROGRESO DE LECTURA ░░ -->
+  <div class="progress-bar" id="progressBar" role="progressbar" aria-label="Progreso de lectura"></div>
+
+  <!-- ░░ BOTÓN VOLVER ARRIBA ░░ -->
+  <button class="back-to-top" id="backToTop" aria-label="Volver al inicio de la página">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+      <polyline points="18 15 12 9 6 15"/>
+    </svg>
+  </button>
+
+  <!-- ░░ NAVBAR ░░ -->
+  <nav class="navbar" id="navbar" aria-label="Navegación principal">
+    <div class="navbar__container">
+
+      <a href="#" class="navbar__logo" aria-label="Instituto de la Plenitud — Inicio">
+        <div class="navbar__logo-mark" aria-hidden="true">IP</div>
+        <span class="navbar__logo-text">Instituto de la Plenitud</span>
+      </a>
+
+      <div class="navbar__links" id="navLinks">
+        <a href="#philosophy" class="navbar__link">Filosofía</a>
+        <a href="#aspects" class="navbar__link">Dimensiones</a>
+        <a href="#discipline" class="navbar__link">Disciplina</a>
+        <a href="#learning" class="navbar__link">Aprendizaje</a>
+      </div>
+
+      <div class="navbar__actions">
+        <button class="theme-toggle" id="themeToggle" aria-label="Cambiar tema claro/oscuro">
+          <!-- Ícono Sol -->
+          <svg class="icon-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round">
+            <circle cx="12" cy="12" r="4"/>
+            <path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M4.93 19.07l1.41-1.41M17.66 6.34l1.41-1.41"/>
+          </svg>
+          <!-- Ícono Luna -->
+          <svg class="icon-moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round">
+            <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/>
+          </svg>
+        </button>
+
+        <button class="hamburger" id="hamburger" aria-label="Abrir menú" aria-expanded="false">
+          <span></span><span></span><span></span>
+        </button>
+      </div>
+
+    </div>
+  </nav>
+
+  <!-- ░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░ -->
+  <!-- HERO                                       -->
+  <!-- ░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░ -->
+  <section class="hero" id="hero" aria-label="Portada">
+    <canvas class="hero__canvas" id="heroCanvas" aria-hidden="true"></canvas>
+    <div class="hero__overlay" aria-hidden="true"></div>
+
+    <div class="hero__content">
+      <span class="hero__tag fade-in">Desarrollo humano integral</span>
+
+      <h1 class="hero__title fade-in delay-1">
+        Construye una vida<br/>
+        <em>verdaderamente plena.</em>
+      </h1>
+
+      <p class="hero__subtitle fade-in delay-2">
+        La plenitud no depende solo del éxito profesional o el dinero.
+        Se construye desarrollando, con constancia, todas las dimensiones de la vida.
+      </p>
+
+      <div class="hero__actions fade-in delay-3">
+        <a href="#aspects" class="btn btn--primary">Explorar las dimensiones</a>
+        <a href="#philosophy" class="btn btn--ghost">Nuestra filosofía</a>
+      </div>
+    </div>
+
+    <div class="hero__scroll" aria-hidden="true">
+      <div class="scroll-cue">
+        <div class="scroll-cue__line"></div>
+        <span>Descubrir</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- ░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░ -->
+  <!-- FILOSOFÍA                                  -->
+  <!-- ░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░ -->
+  <section class="section philosophy" id="philosophy" aria-labelledby="philosophy-title">
+    <div class="container">
+
+      <header class="section__header reveal">
+        <span class="section__tag">Nuestra visión</span>
+        <h2 class="section__title" id="philosophy-title">
+          Una filosofía de vida <em>equilibrada</em>
+        </h2>
+        <p class="section__subtitle">
+          La vida humana es multidimensional. Cada área que cultivamos enriquece las demás;
+          cada área que descuidamos, debilita el conjunto.
+        </p>
+      </header>
+
+      <div class="philosophy__grid">
+
+        <div class="philosophy__card reveal delay-1">
+          <div class="philosophy__icon" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/>
+            </svg>
+          </div>
+          <h3>Visión integral</h3>
+          <p>Ninguna área de la vida existe en aislamiento. La salud física impacta la claridad mental; las relaciones nutren el propósito; las finanzas liberan o limitan las elecciones vitales.</p>
+        </div>
+
+        <div class="philosophy__card reveal delay-2">
+          <div class="philosophy__icon" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+              <line x1="12" y1="2" x2="12" y2="22"/>
+              <path d="M5 9c3.5 0 6 1.5 7 4-1 2.5-3.5 4-7 4"/>
+              <path d="M19 9c-3.5 0-6 1.5-7 4 1 2.5 3.5 4 7 4"/>
+            </svg>
+          </div>
+          <h3>Equilibrio consciente</h3>
+          <p>No se trata de perfección. Se trata de atención intencional. Reconocer cuándo una dimensión necesita más foco, y actuar con sabiduría, no con urgencia.</p>
+        </div>
+
+        <div class="philosophy__card reveal delay-3">
+          <div class="philosophy__icon" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+              <polyline points="22 7 13.5 15.5 8.5 10.5 1 18"/>
+              <polyline points="16 7 22 7 22 13"/>
+            </svg>
+          </div>
+          <h3>Crecimiento constante</h3>
+          <p>La plenitud no es un destino, es una dirección. Cada día es una oportunidad para avanzar un pequeño paso en alguna dimensión que importa. La constancia supera al talento.</p>
+        </div>
+
+      </div>
+
+      <blockquote class="philosophy__quote reveal">
+        <p>"La plenitud no se encuentra. Se construye con disciplina, con atención y con la valentía de mirar todas las áreas de tu vida sin excusas."</p>
+        <cite>— Instituto de la Plenitud</cite>
+      </blockquote>
+
+    </div>
+  </section>
+
+  <!-- ░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░ -->
+  <!-- LAS 14 DIMENSIONES                         -->
+  <!-- ░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░ -->
+  <section class="section aspects" id="aspects" aria-labelledby="aspects-title">
+    <div class="container">
+
+      <header class="section__header reveal">
+        <span class="section__tag">Las 14 dimensiones</span>
+        <h2 class="section__title" id="aspects-title">
+          Las dimensiones de <em>una vida plena</em>
+        </h2>
+        <p class="section__subtitle">Cada una de estas áreas merece tu atención consciente. No simultáneamente en igual medida, pero sí intencionalmente.</p>
+      </header>
+
+      <div id="aspects-grid" class="aspects__grid">
+        <!-- Las 14 tarjetas se generan dinámicamente por js/components/render-dimensions.js -->
+      </div>
+    </div>
+  </section>
+
+  <!-- ░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░ -->
+  <!-- DISCIPLINA                                  -->
+  <!-- ░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░ -->
+  <section class="section discipline" id="discipline" aria-labelledby="discipline-title">
+    <div class="container">
+      <div class="discipline__layout">
+
+        <div class="discipline__content reveal">
+          <span class="section__tag">El fundamento invisible</span>
+          <h2 class="section__title" id="discipline-title">
+            La motivación inspira.<br/>
+            <em>La disciplina construye.</em>
+          </h2>
+          <p class="discipline__lead">
+            La motivación es una ola: a veces alta, a veces ausente. La disciplina es la marea:
+            constante, predecible, imparable. Los grandes resultados no vienen de momentos de
+            inspiración, sino de acciones ordinarias ejecutadas extraordinariamente bien, durante mucho tiempo.
+          </p>
+
+          <div class="discipline__pillars">
+            <div class="pillar">
+              <div class="pillar__num">01</div>
+              <div>
+                <h4>Sistemas sobre metas</h4>
+                <p>Las metas te dan dirección. Los sistemas te llevan ahí. Construye procesos que funcionen incluso cuando no tienes ganas.</p>
+              </div>
+            </div>
+            <div class="pillar">
+              <div class="pillar__num">02</div>
+              <div>
+                <h4>Identidad sobre comportamiento</h4>
+                <p>No "estoy intentando correr". Soy una persona que corre. El cambio de identidad precede al cambio de comportamiento durable.</p>
+              </div>
+            </div>
+            <div class="pillar">
+              <div class="pillar__num">03</div>
+              <div>
+                <h4>Progreso sobre perfección</h4>
+                <p>Un 1% mejor cada día es 37 veces mejor al final del año. La constancia modesta supera al esfuerzo heroico e intermitente.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="discipline__visual reveal delay-2">
+          <div class="discipline__ring-card glass">
+            <div class="stat-ring" aria-hidden="true">
+              <svg viewBox="0 0 120 120" class="stat-ring__svg">
+                <circle cx="60" cy="60" r="50" class="stat-ring__bg"/>
+                <circle cx="60" cy="60" r="50" class="stat-ring__fill" id="disciplineRing"/>
+              </svg>
+              <div class="stat-ring__center">
+                <span class="stat-ring__number" id="statCounter">0</span>
+                <span class="stat-ring__unit">días</span>
+              </div>
+            </div>
+            <p class="discipline__ring-label">Un pequeño hábito mantenido durante un año produce resultados que sorprenden incluso a quien los vive.</p>
+          </div>
+
+          <blockquote class="discipline__quote glass">
+            "No son los grandes eventos los que cambian una vida, son los pequeños actos diarios ejecutados con constancia."
+          </blockquote>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░ -->
+  <!-- APRENDIZAJE CONTINUO                       -->
+  <!-- ░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░ -->
+  <section class="section learning" id="learning" aria-labelledby="learning-title">
+    <div class="container">
+
+      <header class="section__header reveal">
+        <span class="section__tag">Aprendizaje continuo</span>
+        <h2 class="section__title" id="learning-title">
+          La mente que no crece, <em>envejece.</em>
+        </h2>
+        <p class="section__subtitle">
+          El aprendizaje constante no es un privilegio de estudiantes. Es la estrategia de
+          adaptación más inteligente en un mundo que cambia sin pedir permiso.
+        </p>
+      </header>
+
+      <div class="learning__methods">
+
+        <div class="learning__method reveal">
+          <div class="learning__method-icon" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/>
+              <path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/>
+            </svg>
+          </div>
+          <h3>Lectura profunda</h3>
+          <p>Un libro al mes equivale a doce mentores al año. La lectura sostenida desarrolla atención, vocabulario y perspectiva que ningún video corto puede reemplazar.</p>
+        </div>
+
+        <div class="learning__method reveal delay-1">
+          <div class="learning__method-icon" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M12 20h9"/>
+              <path d="M16.5 3.5a2.121 2.121 0 0 1 3 3L7 19l-4 1 1-4L16.5 3.5z"/>
+            </svg>
+          </div>
+          <h3>Reflexión activa</h3>
+          <p>Aprender sin reflexionar es acumular sin integrar. El diario, la revisión semanal y la conversación profunda transforman información en sabiduría duradera.</p>
+        </div>
+
+        <div class="learning__method reveal delay-2">
+          <div class="learning__method-icon" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+              <circle cx="12" cy="12" r="10"/>
+              <circle cx="12" cy="12" r="6"/>
+              <circle cx="12" cy="12" r="2"/>
+            </svg>
+          </div>
+          <h3>Aplicación inmediata</h3>
+          <p>El conocimiento que no se aplica se olvida. La práctica deliberada —ejecutar, fallar, ajustar— es el camino más corto de la información al dominio real.</p>
+        </div>
+
+        <div class="learning__method reveal delay-3">
+          <div class="learning__method-icon" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+              <circle cx="12" cy="12" r="10"/>
+              <line x1="2" y1="12" x2="22" y2="12"/>
+              <path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/>
+            </svg>
+          </div>
+          <h3>Exposición diversa</h3>
+          <p>Las conexiones entre disciplinas distintas generan las ideas más poderosas. Sal de tu área de especialidad con curiosidad y sin miedo a la ignorancia inicial.</p>
+        </div>
+
+      </div>
+
+      <div class="learning__cta reveal">
+        <div class="glass learning__cta-box">
+          <h3>El aprendizaje como práctica de vida</h3>
+          <p>No esperes el curso perfecto, el momento ideal ni el maestro definitivo. Empieza hoy, con lo que tienes, donde estás. El progreso acumulado es irresistible.</p>
+          <div class="learning__metrics">
+            <div class="metric">
+              <span class="metric__val">30 min</span>
+              <span class="metric__lbl">al día de lectura enfocada</span>
+            </div>
+            <div class="metric__sep" aria-hidden="true"></div>
+            <div class="metric">
+              <span class="metric__val">12</span>
+              <span class="metric__lbl">libros al año como mínimo</span>
+            </div>
+            <div class="metric__sep" aria-hidden="true"></div>
+            <div class="metric">
+              <span class="metric__val">1%</span>
+              <span class="metric__lbl">mejor cada día que pasa</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░ -->
+  <!-- FRASES DINÁMICAS                           -->
+  <!-- ░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░ -->
+  <section class="section quotes-section" id="quotes" aria-label="Reflexiones">
+    <div class="container">
+      <div class="quotes-rotator" aria-live="polite">
+        <div class="quotes-rotator__track" id="quotesTrack">
+
+          <blockquote class="quote-item active">
+            <p>"La vida no se mide por los logros acumulados, sino por la profundidad con que has habitado cada dimensión de tu existencia."</p>
+            <cite>Instituto de la Plenitud</cite>
+          </blockquote>
+
+          <blockquote class="quote-item">
+            <p>"El equilibrio no es una postura estática. Es un movimiento continuo de atención, corrección y crecimiento."</p>
+            <cite>Instituto de la Plenitud</cite>
+          </blockquote>
+
+          <blockquote class="quote-item">
+            <p>"Invertir en una sola área de la vida y descuidar las demás es construir sobre arena. La solidez viene del desarrollo integral."</p>
+            <cite>Instituto de la Plenitud</cite>
+          </blockquote>
+
+          <blockquote class="quote-item">
+            <p>"La disciplina te llevará a lugares a los que la motivación nunca pudo llevarte. Construye sistemas; no dependas de estados de ánimo."</p>
+            <cite>Instituto de la Plenitud</cite>
+          </blockquote>
+
+          <blockquote class="quote-item">
+            <p>"Conocerse a uno mismo es el comienzo de toda sabiduría práctica. Sin autoconocimiento, todo esfuerzo es navegar sin mapa."</p>
+            <cite>Instituto de la Plenitud</cite>
+          </blockquote>
+
+        </div>
+        <div class="quotes-rotator__dots" id="quotesDots" role="tablist" aria-label="Seleccionar reflexión">
+          <button class="quote-dot active" data-index="0" role="tab" aria-selected="true" aria-label="Reflexión 1"></button>
+          <button class="quote-dot" data-index="1" role="tab" aria-selected="false" aria-label="Reflexión 2"></button>
+          <button class="quote-dot" data-index="2" role="tab" aria-selected="false" aria-label="Reflexión 3"></button>
+          <button class="quote-dot" data-index="3" role="tab" aria-selected="false" aria-label="Reflexión 4"></button>
+          <button class="quote-dot" data-index="4" role="tab" aria-selected="false" aria-label="Reflexión 5"></button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░ -->
+  <!-- AUTOEVALUACIÓN                             -->
+  <!-- ░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░ -->
+  <section class="section assessment" id="assessment" aria-labelledby="assessment-title">
+    <div class="container">
+
+      <header class="section__header reveal">
+        <span class="section__tag">Autoevaluación</span>
+        <h2 class="section__title" id="assessment-title">
+          ¿Cuál dimensión <em>necesitas más?</em>
+        </h2>
+        <p class="section__subtitle">
+          Evalúa honestamente cómo estás en cada área de tu vida ahora mismo.
+          No hay respuestas correctas ni incorrectas — solo claridad.
+        </p>
+      </header>
+
+      <!-- Quiz — ítems generados por quiz.js -->
+      <div class="quiz reveal" id="quiz">
+
+        <!-- Progreso -->
+        <div class="quiz__progress">
+          <span class="quiz__progress-text"
+                id="quizProgressText"
+                aria-live="polite">0 / 14 dimensiones evaluadas</span>
+          <div class="quiz__progress-track"
+               role="progressbar"
+               aria-valuemin="0"
+               aria-valuemax="14"
+               aria-valuenow="0"
+               aria-label="Progreso de la autoevaluación">
+            <div class="quiz__progress-fill" id="quizProgressFill"></div>
+          </div>
+        </div>
+
+        <!-- Grid de ítems -->
+        <div class="quiz__grid" id="quizGrid"></div>
+
+        <!-- Botón de envío — visible solo al completar las 14 -->
+        <div class="quiz__footer">
+          <button class="btn btn--primary quiz__submit"
+                  id="quizSubmit"
+                  aria-hidden="true"
+                  inert>
+            Ver mi diagnóstico
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                 stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                 width="16" height="16" aria-hidden="true">
+              <line x1="5" y1="12" x2="19" y2="12"/>
+              <polyline points="12 5 19 12 12 19"/>
+            </svg>
+          </button>
+        </div>
+
+      </div>
+
+      <!-- Resultados — inyectados por quiz.js al enviar -->
+      <div class="quiz__results" id="quizResults" hidden aria-live="polite"></div>
+
+    </div>
+  </section>
+
+  <!-- ░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░ -->
+  <!-- NEWSLETTER CTA                             -->
+  <!-- ░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░ -->
+  <section class="section newsletter" id="newsletter" aria-labelledby="newsletter-title">
+    <div class="container">
+      <div class="newsletter__card glass reveal">
+
+        <div class="newsletter__content">
+          <span class="section__tag">Reflexiones semanales</span>
+          <h2 class="newsletter__title" id="newsletter-title">
+            Una idea cada semana.<br/>
+            <em>Vale más que mil consejos.</em>
+          </h2>
+          <p class="newsletter__desc">
+            Sin spam. Sin fórmulas vacías. Solo una reflexión profunda sobre alguna
+            de las 14 dimensiones, directo a tu bandeja cada lunes por la mañana.
+          </p>
+
+          <!-- Formulario — conectar con Formspree, Mailchimp o ConvertKit -->
+          <form class="newsletter__form" id="newsletterForm" novalidate aria-label="Formulario de suscripción">
+            <div class="newsletter__input-row">
+              <input
+                type="email"
+                id="newsletterEmail"
+                name="email"
+                class="newsletter__input"
+                placeholder="tu@correo.com"
+                autocomplete="email"
+                required
+                aria-required="true"
+                aria-label="Tu correo electrónico"
+                aria-describedby="newsletterError"
+              />
+              <button type="submit" class="btn btn--primary newsletter__btn">
+                Unirme
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                  <line x1="5" y1="12" x2="19" y2="12"/>
+                  <polyline points="12 5 19 12 12 19"/>
+                </svg>
+              </button>
+            </div>
+            <p class="newsletter__error" id="newsletterError" role="alert" aria-live="polite" hidden>
+              Por favor ingresa un correo electrónico válido.
+            </p>
+            <p class="newsletter__disclaimer">
+              Gratuito · Sin compromisos · Cancela cuando quieras
+            </p>
+          </form>
+
+          <!-- Estado de éxito (se muestra tras enviar) -->
+          <div class="newsletter__success" id="newsletterSuccess" hidden aria-live="polite">
+            <div class="newsletter__success-icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                <polyline points="20 6 9 17 4 12"/>
+              </svg>
+            </div>
+            <p class="newsletter__success-msg">¡Perfecto! Nos veremos en tu bandeja.</p>
+            <p class="newsletter__success-sub">El próximo lunes recibirás tu primera reflexión.</p>
+          </div>
+        </div>
+
+        <!-- Stats decorativos lado derecho -->
+        <div class="newsletter__stats" aria-hidden="true">
+          <div class="newsletter__stat">
+            <span class="newsletter__stat-num">52</span>
+            <span class="newsletter__stat-lbl">reflexiones al año</span>
+          </div>
+          <div class="newsletter__stat-divider"></div>
+          <div class="newsletter__stat">
+            <span class="newsletter__stat-num">14</span>
+            <span class="newsletter__stat-lbl">dimensiones exploradas</span>
+          </div>
+          <div class="newsletter__stat-divider"></div>
+          <div class="newsletter__stat">
+            <span class="newsletter__stat-num">0</span>
+            <span class="newsletter__stat-lbl">clichés motivacionales</span>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░ -->
+  <!-- FOOTER                                     -->
+  <!-- ░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░ -->
+  <footer class="footer" id="footer" aria-label="Pie de página">
+    <div class="container">
+
+      <div class="footer__grid">
+
+        <div class="footer__brand">
+          <div class="footer__logo" aria-label="Instituto de la Plenitud">
+            <div class="footer__logo-mark" aria-hidden="true">IP</div>
+            <span>Instituto de la Plenitud</span>
+          </div>
+          <p class="footer__tagline">Construye una vida equilibrada,<br/>consciente y plena.</p>
+          <div class="footer__social" aria-label="Redes sociales">
+            <a href="#" class="footer__social-link" aria-label="X (Twitter)">
+              <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
+            </a>
+            <a href="#" class="footer__social-link" aria-label="Instagram">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="0.5" fill="currentColor"/></svg>
+            </a>
+            <a href="#" class="footer__social-link" aria-label="LinkedIn">
+              <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6zM2 9h4v12H2z"/><circle cx="4" cy="4" r="2"/></svg>
+            </a>
+          </div>
+        </div>
+
+        <div class="footer__nav">
+          <h5>Explorar</h5>
+          <nav aria-label="Navegación del pie de página - Explorar">
+            <a href="#philosophy">Filosofía</a>
+            <a href="#aspects">Dimensiones</a>
+            <a href="#discipline">Disciplina</a>
+            <a href="#learning">Aprendizaje</a>
+          </nav>
+        </div>
+
+        <div class="footer__nav">
+          <h5>Dimensiones</h5>
+          <nav aria-label="Navegación del pie de página - Dimensiones">
+            <a href="#aspects">Salud física y mental</a>
+            <a href="#aspects">Relaciones y familia</a>
+            <a href="#aspects">Finanzas y propósito</a>
+            <a href="#aspects">Hábitos y tiempo</a>
+          </nav>
+        </div>
+
+        <div class="footer__philosophy">
+          <h5>Nuestra esencia</h5>
+          <p>No somos una academia de motivación. Somos una filosofía de vida basada en el desarrollo constante, el equilibrio consciente y la disciplina diaria.</p>
+        </div>
+
+      </div>
+
+      <div class="footer__bottom">
+        <p>&copy; 2026 Instituto de la Plenitud. Todos los derechos reservados.</p>
+        <p>Construyendo vidas más plenas, una dimensión a la vez.</p>
+      </div>
+
+    </div>
+  </footer>
+
+  <!-- Scripts -->
+  <!-- Datos y componentes: deben cargarse ANTES de scroll.js para que el
+       IntersectionObserver encuentre los .reveal generados dinámicamente -->
+  <script src="js/data/dimensions.js"></script>
+  <script src="js/components/render-dimensions.js"></script>
+  <script src="js/theme.js"></script>
+  <script src="js/canvas.js"></script>
+  <script src="js/scroll.js"></script>
+  <script src="js/phrases.js"></script>
+  <script src="js/quiz.js"></script>
+  <script src="js/main.js"></script>
+
+</body>
+</html>

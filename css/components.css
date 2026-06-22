@@ -1,0 +1,376 @@
+/* ============================================================
+   INSTITUTO DE LA PLENITUD — Componentes (components.css)
+   Piezas reutilizables: navbar, botones, glass, progress bar.
+   ============================================================ */
+
+/* ── Container ──────────────────────────────────────────── */
+
+.container {
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 var(--s-6);
+}
+
+@media (min-width: 640px) {
+  .container { padding: 0 var(--s-8); }
+}
+
+@media (min-width: 1024px) {
+  .container { padding: 0 var(--s-12); }
+}
+
+/* ── Barra de progreso de lectura ───────────────────────── */
+
+.progress-bar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 2px;
+  width: 0%;
+  background: linear-gradient(90deg, var(--accent), var(--c-teal));
+  z-index: var(--z-top);
+  transition: width 80ms linear;
+  will-change: width;
+}
+
+/* ── Navbar ─────────────────────────────────────────────── */
+
+.navbar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: var(--z-sticky);
+  padding: var(--s-4) 0;
+  transition:
+    padding var(--t-slow),
+    background-color var(--t-slow),
+    box-shadow var(--t-slow),
+    backdrop-filter var(--t-slow);
+}
+
+.navbar.scrolled {
+  padding: var(--s-3) 0;
+  background-color: var(--glass-bg);
+  backdrop-filter: blur(var(--glass-blur));
+  -webkit-backdrop-filter: blur(var(--glass-blur));
+  box-shadow: var(--shadow-sm);
+  border-bottom: 1px solid var(--glass-border);
+}
+
+.navbar__container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--s-6);
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 var(--s-6);
+}
+
+@media (min-width: 1024px) {
+  .navbar__container { padding: 0 var(--s-12); }
+}
+
+/* Logo */
+.navbar__logo {
+  display: flex;
+  align-items: center;
+  gap: var(--s-3);
+  text-decoration: none;
+  flex-shrink: 0;
+}
+
+.navbar__logo-mark {
+  width: 36px;
+  height: 36px;
+  background: linear-gradient(135deg, var(--accent) 0%, var(--c-teal) 100%);
+  color: #fff;
+  font-family: var(--font-display);
+  font-size: var(--sz-sm);
+  font-weight: var(--fw-semibold);
+  letter-spacing: 0.03em;
+  border-radius: var(--r-md);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.navbar__logo-text {
+  font-family: var(--font-sans);
+  font-size: var(--sz-sm);
+  font-weight: var(--fw-semibold);
+  color: var(--text-primary);
+  letter-spacing: var(--ls-snug);
+  white-space: nowrap;
+}
+
+@media (max-width: 640px) {
+  .navbar__logo-text { display: none; }
+}
+
+/* Links de navegación */
+.navbar__links {
+  display: flex;
+  align-items: center;
+  gap: var(--s-1);
+}
+
+@media (max-width: 767px) {
+  .navbar__links {
+    display: none;
+    position: fixed;
+    inset: 0;
+    background-color: var(--bg-base);
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: var(--s-8);
+    z-index: var(--z-overlay);
+  }
+  .navbar__links.open {
+    display: flex;
+  }
+  .navbar__links .navbar__link {
+    font-size: var(--sz-2xl);
+  }
+}
+
+.navbar__link {
+  padding: var(--s-2) var(--s-3);
+  font-size: var(--sz-sm);
+  font-weight: var(--fw-medium);
+  color: var(--text-secondary);
+  border-radius: var(--r-md);
+  transition: color var(--t-fast), background-color var(--t-fast);
+}
+
+.navbar__link:hover {
+  color: var(--text-primary);
+  background-color: var(--border-subtle);
+}
+
+/* Acciones del navbar */
+.navbar__actions {
+  display: flex;
+  align-items: center;
+  gap: var(--s-2);
+}
+
+/* Toggle de tema */
+.theme-toggle {
+  width: 38px;
+  height: 38px;
+  border-radius: var(--r-md);
+  color: var(--text-secondary);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: color var(--t-fast), background-color var(--t-fast);
+  position: relative;
+}
+
+.theme-toggle:hover {
+  color: var(--text-primary);
+  background-color: var(--border-subtle);
+}
+
+.theme-toggle svg {
+  width: 18px;
+  height: 18px;
+  position: absolute;
+  transition: opacity var(--dur-base) var(--ease), transform var(--dur-base) var(--ease-spring);
+}
+
+.icon-sun  { opacity: 1; transform: scale(1) rotate(0deg); }
+.icon-moon { opacity: 0; transform: scale(0.6) rotate(30deg); }
+
+[data-theme="dark"] .icon-sun  { opacity: 0; transform: scale(0.6) rotate(-30deg); }
+[data-theme="dark"] .icon-moon { opacity: 1; transform: scale(1) rotate(0deg); }
+
+/* Hamburger (móvil) */
+.hamburger {
+  display: none;
+  width: 38px;
+  height: 38px;
+  border-radius: var(--r-md);
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 5px;
+  z-index: calc(var(--z-overlay) + 1);
+  position: relative;
+}
+
+@media (max-width: 767px) {
+  .hamburger { display: flex; }
+}
+
+.hamburger span {
+  display: block;
+  width: 20px;
+  height: 1.5px;
+  background-color: var(--text-primary);
+  border-radius: 2px;
+  transition: transform var(--t-base), opacity var(--t-fast);
+  transform-origin: center;
+}
+
+.hamburger.open span:nth-child(1) { transform: translateY(6.5px) rotate(45deg); }
+.hamburger.open span:nth-child(2) { opacity: 0; transform: scaleX(0); }
+.hamburger.open span:nth-child(3) { transform: translateY(-6.5px) rotate(-45deg); }
+
+/* ── Botones ────────────────────────────────────────────── */
+
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--s-2);
+  padding: var(--s-3) var(--s-6);
+  border-radius: var(--r-full);
+  font-family: var(--font-sans);
+  font-size: var(--sz-sm);
+  font-weight: var(--fw-medium);
+  letter-spacing: var(--ls-snug);
+  white-space: nowrap;
+  cursor: pointer;
+  transition:
+    background-color var(--t-base),
+    color var(--t-base),
+    box-shadow var(--t-base),
+    transform var(--dur-fast) var(--ease-spring),
+    border-color var(--t-base);
+  user-select: none;
+}
+
+.btn:active {
+  transform: scale(0.97);
+}
+
+/* Primario */
+.btn--primary {
+  background: var(--accent);
+  color: #fff;
+  box-shadow: 0 4px 16px rgba(43, 95, 168, 0.30);
+}
+
+.btn--primary:hover {
+  background: var(--accent-light);
+  box-shadow: 0 6px 24px rgba(43, 95, 168, 0.40);
+  transform: translateY(-1px);
+}
+
+/* Fantasma */
+.btn--ghost {
+  background: transparent;
+  color: var(--text-secondary);
+  border: 1px solid var(--border-soft);
+}
+
+.btn--ghost:hover {
+  color: var(--text-primary);
+  border-color: var(--border-medium);
+  background: var(--border-subtle);
+  transform: translateY(-1px);
+}
+
+/* ── Glassmorphism base ──────────────────────────────────── */
+
+.glass {
+  background: var(--glass-bg);
+  backdrop-filter: blur(var(--glass-blur));
+  -webkit-backdrop-filter: blur(var(--glass-blur));
+  border: 1px solid var(--glass-border);
+  border-radius: var(--r-xl);
+}
+
+/* ── Scroll cue (hero) ──────────────────────────────────── */
+
+.scroll-cue {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--s-2);
+}
+
+.scroll-cue__line {
+  width: 1px;
+  height: 48px;
+  background: linear-gradient(to bottom, transparent, var(--text-muted));
+  animation: scrollLine 2s ease-in-out infinite;
+}
+
+.scroll-cue span {
+  font-size: var(--sz-xs);
+  letter-spacing: var(--ls-wider);
+  text-transform: uppercase;
+  color: var(--text-muted);
+}
+
+@keyframes scrollLine {
+  0%, 100% { opacity: 0; transform: scaleY(0); transform-origin: top; }
+  50%       { opacity: 1; transform: scaleY(1); transform-origin: top; }
+}
+
+/* ── Botón Volver Arriba ────────────────────────────────── */
+
+.back-to-top {
+  position: fixed;
+  bottom: var(--s-8);
+  right: var(--s-8);
+  width: 46px;
+  height: 46px;
+  border-radius: var(--r-full);
+  background: var(--accent);
+  color: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 4px 20px rgba(43, 95, 168, 0.40);
+  z-index: var(--z-sticky);
+
+  /* Oculto por defecto */
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(10px) scale(0.9);
+  transition:
+    opacity   var(--t-base),
+    visibility var(--t-base),
+    transform  var(--t-base) var(--ease-spring),
+    background-color var(--t-fast),
+    box-shadow var(--t-base);
+}
+
+/* Visible al hacer scroll */
+.back-to-top.visible {
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(0) scale(1);
+}
+
+.back-to-top:hover {
+  background: var(--accent-light);
+  box-shadow: 0 8px 28px rgba(43, 95, 168, 0.50);
+  transform: translateY(-3px) scale(1.05);
+}
+
+.back-to-top:active {
+  transform: translateY(0) scale(0.96);
+}
+
+.back-to-top svg {
+  width: 18px;
+  height: 18px;
+}
+
+@media (max-width: 640px) {
+  .back-to-top {
+    bottom: var(--s-5);
+    right: var(--s-5);
+    width: 42px;
+    height: 42px;
+  }
+}

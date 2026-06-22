@@ -1,0 +1,94 @@
+/* ============================================================
+   INSTITUTO DE LA PLENITUD — Tipografía (typography.css)
+   ============================================================ */
+
+/* ── Encabezados ────────────────────────────────────────── */
+
+h1, h2,
+.display {
+  font-family: var(--font-display);
+  font-weight: var(--fw-medium);
+  line-height: var(--lh-tight);
+  letter-spacing: var(--ls-tight);
+  color: var(--text-primary);
+}
+
+h3, h4, h5, h6 {
+  font-family: var(--font-sans);
+  font-weight: var(--fw-semibold);
+  line-height: var(--lh-snug);
+  letter-spacing: var(--ls-snug);
+  color: var(--text-primary);
+}
+
+h1 { font-size: clamp(var(--sz-4xl), 6vw, var(--sz-7xl)); }
+h2 { font-size: clamp(var(--sz-3xl), 4vw, var(--sz-5xl)); }
+h3 { font-size: clamp(var(--sz-xl),  2.5vw, var(--sz-2xl)); }
+h4 { font-size: var(--sz-lg); }
+h5 {
+  font-size: var(--sz-xs);
+  font-weight: var(--fw-semibold);
+  letter-spacing: var(--ls-wider);
+  text-transform: uppercase;
+}
+
+em { font-style: italic; }
+
+/* ── Párrafos ───────────────────────────────────────────── */
+
+p {
+  color: var(--text-secondary);
+  line-height: var(--lh-relaxed);
+}
+
+/* ── Encabezados de sección ─────────────────────────────── */
+
+.section__tag {
+  display: inline-block;
+  font-family: var(--font-sans);
+  font-size: var(--sz-xs);
+  font-weight: var(--fw-semibold);
+  letter-spacing: var(--ls-wider);
+  text-transform: uppercase;
+  color: var(--accent);
+  margin-bottom: var(--s-3);
+}
+
+.section__title {
+  color: var(--text-primary);
+  margin-bottom: var(--s-5);
+}
+
+.section__title em {
+  color: var(--accent);
+  font-style: italic;
+}
+
+.section__subtitle {
+  font-size: var(--sz-lg);
+  color: var(--text-muted);
+  max-width: 62ch;
+  margin: 0 auto;
+  line-height: var(--lh-relaxed);
+}
+
+/* ── Blockquotes ────────────────────────────────────────── */
+
+blockquote {
+  font-family: var(--font-display);
+  font-size: clamp(var(--sz-lg), 2.5vw, var(--sz-2xl));
+  font-style: italic;
+  line-height: var(--lh-relaxed);
+  color: var(--text-primary);
+}
+
+blockquote cite {
+  display: block;
+  margin-top: var(--s-4);
+  font-family: var(--font-sans);
+  font-size: var(--sz-sm);
+  font-style: normal;
+  font-weight: var(--fw-medium);
+  letter-spacing: var(--ls-wide);
+  color: var(--text-muted);
+}

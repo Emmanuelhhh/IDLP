@@ -78,7 +78,11 @@
     }
   }
 
-  /* ── Newsletter Form ─────────────────────────────────── */
+  /* ── Newsletter Form (MailerLite) ────────────────────── */
+  const ML_ACCOUNT = '2464268';
+  // Crea un formulario en MailerLite → Forms → Embedded y pega su ID aquí:
+  const ML_FORM_ID = 'U0tT3M';
+
   const form        = document.getElementById('newsletterForm');
   const emailInput  = document.getElementById('newsletterEmail');
   const errorMsg    = document.getElementById('newsletterError');
@@ -86,10 +90,12 @@
 
   if (form && emailInput) {
 
-    // Limpiar error al escribir
     emailInput.addEventListener('input', () => {
       emailInput.classList.remove('error');
-      if (errorMsg) errorMsg.hidden = true;
+      if (errorMsg) {
+        errorMsg.hidden = true;
+        errorMsg.textContent = 'Por favor ingresa un correo electrónico válido.';
+      }
     });
 
     form.addEventListener('submit', (e) => {
@@ -99,42 +105,50 @@
       const valid = /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
 
       if (!valid) {
-        // Mostrar error de validación
         emailInput.classList.add('error');
         if (errorMsg) errorMsg.hidden = false;
         emailInput.focus();
         return;
       }
 
-      // ── Aquí conectar con tu proveedor de email ──────────
-      // Opción A — Formspree (gratuito, no requiere backend):
-      //   Cambia el action del form en HTML:
-      //   <form action="https://formspree.io/f/TU_ID" method="POST">
-      //   y elimina el e.preventDefault() de arriba.
-      //
-      // Opción B — ConvertKit / Mailchimp:
-      //   fetch('https://api.tu-proveedor.com/subscribe', {
-      //     method: 'POST',
-      //     body: JSON.stringify({ email }),
-      //     headers: { 'Content-Type': 'application/json' }
-      //   });
-      //
-      // Por ahora simulamos el éxito para mostrar el estado visual:
-      // ─────────────────────────────────────────────────────
+      const submitBtn = form.querySelector('[type="submit"]');
+      if (submitBtn) submitBtn.disabled = true;
 
-      mostrarExito();
+      const body = new FormData();
+      body.append('fields[email]', email);
+      body.append('ml_submit', '1');
+      body.append('anticsrf', 'true');
+
+      fetch(
+        `https://assets.mailerlite.com/jsonp/${ML_ACCOUNT}/forms/${ML_FORM_ID}/subscribe`,
+        { method: 'POST', body }
+      )
+        .then((res) => (res.ok ? res.json() : Promise.reject()))
+        .then((data) => {
+          if (data && data.success) {
+            mostrarExito();
+          } else {
+            throw new Error();
+          }
+        })
+        .catch(() => {
+          if (submitBtn) submitBtn.disabled = false;
+          emailInput.classList.add('error');
+          if (errorMsg) {
+            errorMsg.textContent = 'No se pudo completar la suscripción. Inténtalo de nuevo.';
+            errorMsg.hidden = false;
+          }
+        });
     });
 
     function mostrarExito() {
-      // Ocultar el formulario con fade
       form.style.transition = 'opacity 300ms ease, transform 300ms ease';
       form.style.opacity    = '0';
       form.style.transform  = 'translateY(-8px)';
 
       setTimeout(() => {
         form.hidden = true;
-        form.style.cssText = ''; // limpiar estilos inline
-
+        form.style.cssText = '';
         if (successBox) {
           successBox.hidden = false;
           successBox.focus();

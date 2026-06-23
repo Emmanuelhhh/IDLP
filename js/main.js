@@ -81,7 +81,7 @@
   /* ── Newsletter Form (MailerLite) ────────────────────── */
   const ML_ACCOUNT = '2464268';
   // Crea un formulario en MailerLite → Forms → Embedded y pega su ID aquí:
-  const ML_FORM_ID = 'U0tT3M';
+  const ML_FORM_ID = '191022997885158971';
 
   const form        = document.getElementById('newsletterForm');
   const emailInput  = document.getElementById('newsletterEmail');
